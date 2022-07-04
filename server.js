@@ -1,16 +1,17 @@
 
-console.log('May the Node be with you')
-
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 const MongoClient = require('mongodb').MongoClient;
 
+// original mongo url
+// 'mongodb+srv://pcabezal:Overmind8@cluster0.xdpij.mongodb.net/?retryWrites=true&w=majority'
+
 MongoClient.connect('mongodb+srv://pcabezal:Overmind8@cluster0.xdpij.mongodb.net/?retryWrites=true&w=majority', {
     useUnifiedTopology: true })
                     
     .then(client => {
-        console.log('connected total mongo yo')
+        console.log('connected total mongo bro')
         const db = client.db('starWars')
         const quotesCollection = db.collection('quotes')
         // ========================
@@ -21,10 +22,6 @@ MongoClient.connect('mongodb+srv://pcabezal:Overmind8@cluster0.xdpij.mongodb.net
         app.use(bodyParser.json())
         app.use(express.static('public'))
 
-        // app.get('/', (req, res) => {
-        //     const cursor = quotesCollection.find()
-        //     console.log(cursor)
-        // })
         app.get('/', (req, res) => {
             db.collection('quotes').find().toArray()
                 .then(results => {
@@ -78,16 +75,10 @@ MongoClient.connect('mongodb+srv://pcabezal:Overmind8@cluster0.xdpij.mongodb.net
     })
     .catch(error => console.error(error))
 
-
-
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.listen(3000, function() {
-    console.log('andre on 3000 yo')
+    console.log('Listening on port andre3000')
 })
-
-// app.get('/', (req, res) => {
-//     res.sendFile(__dirname + '/index.html')
-// })
 
 

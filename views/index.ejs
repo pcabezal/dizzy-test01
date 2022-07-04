@@ -9,52 +9,49 @@
 </head>
 <body>
     <h1>Dizzy Ballin Out of Control</h1>
-
-    <form action="/quotes" method="POST"></form>
-    
-    <form action="">
-        <input type="text">
-        <input type="text">
-        <button></button>
-    </form>
-
+   
     <form action="/quotes" method="POST">
-        <input type="text" placeholder="name" name="name">
-        <input type="text" placeholder="quote" name="quote">
+        <input type="text" placeholder="playerName" name="playerName">
+        <input type="text" placeholder="deathX" name="deathX">
+        <input type="text" placeholder="deathY" name="deathY">
+        <input type="text" placeholder="pooface" name="pooface">
         <button type="submit">Submit</button>
     </form>
 
-    <h2>Quotes</h2>
+    <h2>Deaths</h2>
 
     <div>
-        <h2>Darth Vadar invades!</h2>
-        <p>
-          Replace first Yoda's quote with a quote written by Darth Vadar
-        </p>
-        <button id="update-button">Replace Yoda's quote</button>
+        <button id="update-button">Update Something</button>
       </div>
 
     <div>
-        <h2>Remove Darth Vadar!</h2>
-        <p>
-            Delete one Darth Vadar's quote. Does nothing if there are no more Darth
-            Vadar's quote
-        </p>
-        <button id="delete-button">Delete Darth Vadar's quote</button>
+        <button id="delete-button">Delete Something</button>
     </div>
 
     <div id="message"></div>
 
-    <ul class="quotes">
+    <!-- <ul class="quotes">
         <% for(let i=0; i < quotes.length; i++) {%>
             <li class="quote">
                 <span><%= quotes[i].name %></span>:
                 <span><%= quotes[i].quote %></span>
             </li>
         <%} %>
-    </ul>
-
+    </ul> -->
 
     <script src="/main.js"></script>
 </body>
 </html>
+
+<!-- Player name
+Sector Number
+Coord X
+Coord Y
+Death Time
+Victory Time
+
+Seed
+Ladder ID
+Ladder finish Time
+
+Weight?? -->
