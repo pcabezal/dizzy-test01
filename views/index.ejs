@@ -10,15 +10,15 @@
 <body>
     <h1>Dizzy Ballin Out of Control</h1>
    
-    <form action="/quotes" method="POST">
+    Submit New Death Stats
+    <form action="/death-list" method="POST">
         <input type="text" placeholder="playerName" name="playerName">
         <input type="text" placeholder="deathX" name="deathX">
         <input type="text" placeholder="deathY" name="deathY">
-        <input type="text" placeholder="pooface" name="pooface">
+        <input type="text" placeholder="sector" name="sector">
+        <input type="text" placeholder="deathTime" name="deathTime">
         <button type="submit">Submit</button>
     </form>
-
-    <h2>Deaths</h2>
 
     <div>
         <button id="update-button">Update Something</button>
@@ -30,25 +30,29 @@
 
     <div id="message"></div>
 
-    <!-- <ul class="quotes">
-        <% for(let i=0; i < quotes.length; i++) {%>
-            <li class="quote">
-                <span><%= quotes[i].name %></span>:
-                <span><%= quotes[i].quote %></span>
+    <h2>Deaths</h2>
+
+    <ul class="deathStats">
+        <% for(let i=0; i < deathStats.length; i++) {%>
+            <li>
+                <span>Name: <%= deathStats[i].playerName %></span>,
+                <span>X: <%= deathStats[i].deathX %></span>,
+                <span>Y: <%= deathStats[i].deathY %></span>,
+                <span>Sector: <%= deathStats[i].sector %></span>,
+                <span>Time: <%= deathStats[i].deathTime %></span>
             </li>
         <%} %>
-    </ul> -->
+    </ul>
 
     <script src="/main.js"></script>
 </body>
 </html>
 
 <!-- Player name
-Sector Number
 Coord X
 Coord Y
+Sector Number
 Death Time
-Victory Time
 
 Seed
 Ladder ID
