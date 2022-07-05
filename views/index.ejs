@@ -8,9 +8,9 @@
     <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-    <h1>Dizzy Ballin Out of Control</h1>
+    <h1>Dizzy Ballers Out of Control</h1>
    
-    Submit New Death Stats
+        Submit New Death Stats
     <form action="/death-list" method="POST">
         <input type="text" placeholder="playerName" name="playerName">
         <input type="text" placeholder="deathX" name="deathX">
@@ -21,16 +21,20 @@
     </form>
 
     <div>
-        <button id="update-button">Update Something</button>
-      </div>
-
-    <div>
-        <button id="delete-button">Delete Something</button>
+        <button id="testman-button">Add a testman</button>
     </div>
 
-    <div id="message"></div>
+    <div>
+        <button id="update-button">Hasselfy a testman</button>
+    </div>
 
-    <h2>Deaths</h2>
+    <div>
+        <button id="delete-button">Delete a Hass</button>
+    </div>
+
+    <p>
+        Deaths
+    </p>
 
     <ul class="deathStats">
         <% for(let i=0; i < deathStats.length; i++) {%>
@@ -44,18 +48,8 @@
         <%} %>
     </ul>
 
+    <div id="message"></div>
+
     <script src="/main.js"></script>
 </body>
 </html>
-
-<!-- Player name
-Coord X
-Coord Y
-Sector Number
-Death Time
-
-Seed
-Ladder ID
-Ladder finish Time
-
-Weight?? -->

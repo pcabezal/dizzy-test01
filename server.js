@@ -32,42 +32,40 @@ MongoClient.connect('mongodb+srv://dizzy:ballin@cluster0.nrtlq.mongodb.net/?retr
         .catch(error => console.error(error))
     })
 
-    app.put('/death-list', (req,res) => {
-      console.log('penis')
+    app.put('/death-list', (req, res) => {
+      deathList.findOneAndUpdate(
+        { playerName: 'testman' },
+        {
+          $set: {
+            playerName: req.body.playerName,
+            deathX: req.body.deathX,
+            deathY: req.body.deathY,
+            sector: req.body.sector,
+            deathTime: req.body.deathTime
+          }
+        },
+        {
+          upsert: true  // create new death if there are no testman deaths to replace
+        }
+      )
+      .then(result => {
+          res.json('Success')
+      })
+      .catch(error => console.error(error))
     })
 
-    // app.put('/death-list', (req, res) => {
-    //   deathList.findOneAndUpdate(
-    //     { playerName: 'testman' },
-    //     {
-    //       $set: {
-    //         playerName: req.body.playerName,
-    //         deathX: req.body.deathX,
-    //         deathY: req.body.deathY
-    //       }
-    //     },
-    //     {
-    //       upsert: true
-    //     }
-    //   )
-    //   .then(result => {
-    //       res.json('Success')
-    //   })
-    //   .catch(error => console.error(error))
-    // })
-
-    // app.delete('/death-list', (req, res) => {
-    //   deathList.deleteOne(
-    //     { name: req.body.name }
-    //   )
-    //   .then(result => {
-    //       if (result.deletedCount === 0) {
-    //           return res.json('Nothing to delete')
-    //         }
-    //       res.json(`Deleted something`)
-    //     })
-    //     .catch(error => console.error(error))
-    // })
+    app.delete('/death-list', (req, res) => {
+      deathList.deleteOne(
+        { playerName: req.body.playerName }
+      )
+      .then(result => {
+          if (result.deletedCount === 0) {
+              return res.json('Nothing to delete')
+            }
+          res.json(`Deleted something`)
+        })
+        .catch(error => console.error(error))
+    })
 
     app.listen()
   })

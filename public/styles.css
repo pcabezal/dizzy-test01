@@ -3,3 +3,7 @@ body {
     color: hsl(0, 0%, 85%);
     font-size: 2rem;
 }
+
+.deathStats {
+    font-size: 1.5rem;
+}
